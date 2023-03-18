@@ -1,0 +1,8 @@
+FeignClinet 远程调用
+	常用属性： name--》指定feignClient的名称  如果项目使用了ribbon，name属性会作为微服务的名称，用于服务发现
+	url： 用于调试，可以手动指定调用地址
+	decode404： 当发生404错误 如果该字段是true，会调用decoder进行解码，否则抛出FeignException
+	configuration： Feign配置类，可以自定义
+	fallback： 定义容错处理类，当调用远程接口失败或者超时时，会调用对应接口的容错逻辑，fallback指定的类必须实现@FeignClient标记的接口
+	fallbackFactory： 工厂类，用于生成fallback类示例，可以实现每个接口通用的调用容错逻辑，减少重复代码
+	path： 定义当前FeignClient的统一前缀，当我们项目中配置了 server.context-path,server.servlet-path时使用
